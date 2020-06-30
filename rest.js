@@ -6,7 +6,7 @@ const express = require('express');
  * @param {SocketIO.Server} ioInstance 
  */
 const initRestAPI = (ioInstance)=> {
-    router = express.Router();
+    const router = express.Router();
 
     const postgre = require("./postgre/postgre");
 
