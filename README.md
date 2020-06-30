@@ -64,10 +64,12 @@ node app.js
 
 #### Bonus
 
-- Implement chat in rest API ❌
+- Chat mockup ✅
+- Implement chat in rest API ⌛
+- Interface development ❌
 - Implement chat in client ❌
 - Use websockets ❌
 
-
+(❌ : not done | ⌛ : currently working on it | ✅ : done)
 
 ![Easilys logo](https://www.jaimelesstartups.fr/wp-content/uploads/2018/05/easilys.jpg)
