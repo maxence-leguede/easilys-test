@@ -47,8 +47,8 @@ export const createParty = (name) => {
               'Content-Type': 'application/json'
             },
             body:JSON.stringify({name:name})
-        }).then(res => res.json()).then(json => {
-            resolve(json)
+        }).then(res => {
+            resolve()
         }).catch((err) => {
             reject(err)
         })
