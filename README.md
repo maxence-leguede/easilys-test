@@ -52,14 +52,14 @@ node app.js
 - Change party status ✅
 - Get parties ✅
 - Get the number of unfinished parties ✅
-- Link with websockets ❌
+- Link with websockets ✅
 
 #### WebClient
 
 - Interface mockup ✅
 - Interface development ✅
 - Link the interface with the rest API ✅
-- Use websockets ❌
+- Use websockets ✅
 
 
 #### Bonus

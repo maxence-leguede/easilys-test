@@ -3,9 +3,7 @@
 
 class Party {
     constructor(json) {
-        console.log(json)
         Object.assign(this, json)
-        console.log(this.finished)
     }
 
     getId() {
@@ -18,6 +16,10 @@ class Party {
 
     isFinished() {
         return this.finished;
+    }
+
+    setFinished(finish) {
+        this.finished = finish;
     }
 
     toHTML() {

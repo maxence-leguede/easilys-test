@@ -41,7 +41,7 @@ function Parties(pgPool) {
      */
     this.getParties = (offset) => {
         const query = `
-            SELECT * FROM parties ORDER BY id ASC LIMIT 10 OFFSET $1
+            SELECT * FROM parties ORDER BY id DESC LIMIT 10 OFFSET $1
         `
 
         const queryValues = [offset]

@@ -1,10 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const postgre = require("./postgre/postgre");
-const rest = require("./rest");
 
 const app = express();
 const port = 3000;
+
+/**
+ * Initalise websocket
+ */
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
+const rest = require("./rest")(io);
+
 
 /**
  * Add body parser to express's middlewares to be able to get the body of an HTTP post
@@ -16,6 +24,7 @@ app.use(bodyParser.json());
  * Set the /views directory as a static one on express. Express will now use it as a ressource directory
  */
 app.use(express.static(__dirname + '/views'));
+
 
 /**
  * Add the routes of the REST api to express
@@ -36,7 +45,7 @@ app.get("/", (req, res) => {
  */
 postgre.initialiseDatabase().then(res => {
     console.log("Database has been initialised !")
-    app.listen(port, () => {
+    http.listen(port, () => {
         console.log(`Babyfootmanager services launched successfully ! Listening at : 127.0.0.1:${port}`)        
     })
 }).catch(err => {
