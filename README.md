@@ -5,13 +5,15 @@ This repository has been made to code the test of **Easilys**.
 
 ## Dependencies 
 
-⋅⋅* Node Js (developed with version 12.18.1)
-⋅⋅* PostgreSQL (developed with version 12.3)
+- Node Js (developed with version 12.18.1)
+- PostgreSQL (developed with version 12.3)
 
-⋅⋅* Express
-⋅⋅* Body-parser
-⋅⋅* pg
-⋅⋅* socket.io
+Node modules :
+
+- Express
+- Body-parser
+- pg
+- socket.io
 
 
 
@@ -45,26 +47,26 @@ node app.js
 
 #### REST
 
-..* Create a party ✅
-..* Delete a party ✅
-..* Change party status ✅
-..* Get parties ✅
-..* Get the number of unfinished parties ✅
-..* Link with websockets ❌
+- Create a party ✅
+- Delete a party ✅
+- Change party status ✅
+- Get parties ✅
+- Get the number of unfinished parties ✅
+- Link with websockets ❌
 
 #### WebClient
 
-..* Interface mockup ✅
-..* Interface development ✅
-..* Link the interface with the rest API ✅
-..* Use websockets ❌
+- Interface mockup ✅
+- Interface development ✅
+- Link the interface with the rest API ✅
+- Use websockets ❌
 
 
 #### Bonus
 
-..* Implement chat in rest API ❌
-..* Implement chat in client ❌
-..* Use websockets ❌
+- Implement chat in rest API ❌
+- Implement chat in client ❌
+- Use websockets ❌
 
 
 
