@@ -43,6 +43,37 @@ node app.js
 
 
 
+## Folders organisation
+
+#### Server side
+
+- app.js : Main of the projet, initialise the sockets, database, express...
+- rest.js : Contains all the REST API routes
+
+**postgre folder :**
+
+- config.js : Configuration of the database access
+- postgre.js : Main manager of the database (initialisation, connection)
+- chat.js : All the queries for the chat
+- parties.js : All the queries for the parties
+
+#### Client side
+
+**css :**
+
+- anims.css : All the animations
+- fonts.css : All the fonts declarations
+- reset.css : Contains the reset of the default browser styles
+- global.css : Contains the code for the interfaces
+
+**js :**
+
+- Models : Contains the used objects for messages and parties
+- rest : Contains the functions which links the client with the REST API
+
+- chat.mjs : Manage the chat
+- main.mjs : Manage the parties management
+
 ## Todo list
 
 #### REST
@@ -66,9 +97,15 @@ node app.js
 
 - Chat mockup ✅
 - Implement chat in rest API ✅
-- Interface development ❌
-- Implement chat in client ❌
-- Use websockets ❌
+- Interface development ✅
+- Implement chat in client ✅
+- Use websockets ✅
+
+#### BONUS ++ ?
+
+- Responsive design
+- Get when someone is typing
+- Get when someone connects / leave the chat
 
 (❌ : not done | ⌛ : currently working on it | ✅ : done)
 

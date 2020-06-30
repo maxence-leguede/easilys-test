@@ -47,15 +47,6 @@ postgre.initialiseDatabase().then(res => {
     console.log("Database has been initialised !")
     http.listen(port, () => {
         console.log(`Babyfootmanager services launched successfully ! Listening at : 127.0.0.1:${port}`)   
-        /*postgre.Chat.selectOrCreateUser("test2").then((data) => {
-            console.log(data.rows)
-        })*/
-
-        /*postgre.Chat.addMessage(1, "Bonjour !").then(() => {
-            postgre.Chat.getLastMessages(0).then((data) => {
-                console.log(data.rows)
-            })
-        })*/
     })
 }).catch(err => {
     console.error(`Error during database initialisation ! Error : ${err}`)

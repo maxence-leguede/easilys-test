@@ -16,31 +16,99 @@
         <img src="/img/background.jpg" alt="Babyfoot background" id="babyfoot">
         <h1 class="white textCenter">Babyfootmanager</h1>
 
+        <!--
+            PARTIES INTERFACE
+        -->
         <div id="pageContainer">
+            <!--
+                ADD PARTY BUTTON
+            -->
             <div id="addParty" class="input fade-fast">
                 <input type="text" placeholder="Nouvelle partie...">
                 <span class="background-blue white"><i class="material-icons">add</i></span>
             </div>
 
-
+            <!--
+                PARTIES LIST INTERFACE
+            -->
             <div id="parties" class="fade-slow">
                 <div id="title" class="background-blue white">Les parties</div>
                 <div id="currentParties" class="background-blue white">3</div>
 
+                <!--
+                    PARTIES LIST
+                -->
                 <ul>
-                    <!--<li class="finished">
-                        <p>Vincent vs Maxime</p>
-                        <div class="actions">
-                            <input type="checkbox">
-                            <i class="material-icons">delete</i>
-                        </div>
-                    </li>-->
                 </ul>
 
                 <span id="loadMore">Charger plus...</span>
             </div>
         </div>
 
+        <!--
+            OPEN CHAT BUTTON
+        -->
+        <div id="chatButton" class="background-green white"><div id="notification" class="background-red disabled"></div><i class="material-icons">chat</i></div>
+
+        <!--
+            CHAT INTERFACES
+        -->
+        <div id="chat" class="disabled">
+            <!--
+                SIGN IN POPUP
+            -->
+            <div id="chatPopup" class="disabled">
+                <div id="popupContainer">
+                    <i class="material-icons close">close</i>
+                    <h2>Rejoindre la discussion</h2>
+                    <p>Afin de rejoindre la discussion, veuillez entrer votre pseudonyme.</p>
+
+                    <!--
+                        SIGN IN BUTTON
+                    -->
+                    <div id="setUsername" class="input fade-fast">
+                        <input type="text" placeholder="Pseudonyme...">
+                        <span class="background-blue white"><i class="material-icons">navigate_next</i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+                CHAT MESSAGES INTERFACE
+            -->
+            <div id="chatContainer" class="background-green disabled">
+                <!--
+                    TOP OF THE INTERFACE
+                -->
+                <div id="top">
+                    <i class="material-icons close white">close</i>
+                    <h2 class="white">Tchat</h2>
+                </div>
+                <!--
+                    MESSAGES CONTAINER
+                -->
+                <div id="messagesContainer">
+                    <div id="chatLoadMore">
+                        Charger plus...
+                    </div>
+                    <!--
+                        MESSAGES LIST
+                    -->
+                    <ul>
+                    </ul>
+                </div>
+
+                <!--
+                    POST MESSAGE
+                -->
+                <div id="sendMessage" class="input fade-fast">
+                    <input type="text" placeholder="Ecrivez votre message...">
+                    <span class="background-blue white"><i class="material-icons">send</i></span>
+                </div>
+            </div>
+        </div> 
+
         <script type="module" src="./js/main.mjs"></script>
+        <script type="module" src="./js/chat.mjs"></script>
     </body>
 </html>

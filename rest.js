@@ -1,3 +1,4 @@
+"use strict";
 const express = require('express');
 
 /**
@@ -97,8 +98,8 @@ const initRestAPI = (ioInstance)=> {
      */
     router.post("/chat/login", (req, res) => {
         if(req.body.name) {
-            postgre.Chat.selectOrCreateUser(req.body.name).then((rows) => {
-                const currentUser = rows[0];
+            postgre.Chat.selectOrCreateUser(req.body.name).then((data) => {
+                const currentUser = data.rows[0];
                 res.status(302).send(currentUser);
             }).catch((error) => {
                 res.status(500).send(error);
@@ -114,7 +115,7 @@ const initRestAPI = (ioInstance)=> {
      */
     router.get("/chat/messages/:offset", (req,res) => {
         postgre.Chat.getLastMessages(req.params.offset).then((data) => {
-            res.status(302).send(data);
+            res.status(302).send(data.rows);
         }).catch((error) => {
             res.status(500).send(error);
         })
@@ -124,8 +125,9 @@ const initRestAPI = (ioInstance)=> {
      * Route of /api/chat/post in POST method. Will create a new message for the specified id
      */
     router.post("/chat/post", (req,res) => {
-        if(req.body.id && req.body.message) {
-            postgre.Chat.addMessage(req.body.id, req.body.message).then(() => {
+        if(req.body.id && req.body.name && req.body.message) {
+            postgre.Chat.addMessage(req.body.id, req.body.message).then((data) => {
+                ioInstance.emit("new_message", {id:data.rows[0].id,user_id:req.body.id, name:req.body.name, message:req.body.message})
                 res.sendStatus(302);
             })
         } else {

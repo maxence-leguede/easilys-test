@@ -1,4 +1,4 @@
-
+"use strict";
 /**
  * Parties object instance which allows you to manage the parties. As create or delete one, get the parties or the number of unfinished ones.
  * @param {Pool} pgPool 
@@ -46,7 +46,7 @@ function Chat(pgPool) {
      */
     this.addMessage = (id, message) => {
         const query = `
-            INSERT INTO chat_messages (user_id, message) VALUES($1, $2)
+            INSERT INTO chat_messages (user_id, message) VALUES($1, $2) RETURNING id
         `
 
         const queryValues = [id, message]
@@ -60,7 +60,7 @@ function Chat(pgPool) {
                     if(err) {
                         reject(err)
                     }
-                    resolve()
+                    resolve(res)
                 })
             })
             
@@ -75,7 +75,7 @@ function Chat(pgPool) {
      */
     this.getLastMessages = (offset) => {
         const query = `
-            SELECT user_id, message, name FROM chat_messages JOIN chat_users USING(user_id) ORDER BY id DESC LIMIT 10 OFFSET $1
+            SELECT * FROM chat_messages JOIN chat_users USING(user_id) ORDER BY id DESC LIMIT 10 OFFSET $1
         `
 
         const queryValues = [offset]

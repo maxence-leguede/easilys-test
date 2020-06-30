@@ -1,4 +1,4 @@
-import Party from "../models/party.mjs"
+"use strict";
 
 /**
  * Get the number of unfinished parties.
@@ -65,7 +65,11 @@ export const deleteParty = (partyId) => {
     })
 }
 
-
+/**
+ * Update the specified party status
+ * @param partyId Id of the party to update
+ * @param finished Is the party finished
+ */
 export const updateParty = (partyId, finished) => {
     fetch("/api/parties/set", {
         method:"POST",
@@ -76,6 +80,70 @@ export const updateParty = (partyId, finished) => {
         body:JSON.stringify({
             id:partyId,
             finished:finished
+        })
+    })
+}
+
+
+
+
+/**
+ * Sign in with the specified username and get it data
+ * @param username Username to sign in
+ * @returns {Promise<json|Error>} A promise with the inserted or selected row in json
+ */
+export const signinCall = (username) => {
+    return new Promise((resolve, reject) => {
+        fetch("/api/chat/login", {
+            method:"POST",
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                name:username
+            })
+        }).then(text => text.json()).then(data => {
+            resolve(data)
+        }).catch((error) => {
+            reject(error)
+        })
+    });
+}
+
+/**
+ * Select chat messages from offset+1 to offset+11
+ * @param offset Offset where start selection
+ * @returns {Promise<json|Error>} A promise with the selected rows in json
+ */
+export const getChatMessages = (offset) => {
+    return new Promise((resolve, reject) => {
+        fetch(`/api/chat/messages/${offset}`)
+        .then(text => text.json()).then(data => {
+            resolve(data)
+        }).catch((error) => {
+            reject(error)
+        })
+    });
+}
+
+/**
+ * Send the message from the specified user
+ * @param id id of the current user
+ * @param name Name of the current user
+ * @param message Message to send
+ */
+export const sendMessage = (id, name, message) => {
+    fetch("/api/chat/post", {
+        method:"POST",
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            id:id,
+            name:name,
+            message:message
         })
     })
 }

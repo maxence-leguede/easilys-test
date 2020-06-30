@@ -17,3 +17,12 @@
         opacity: 1;
     }
 }
+
+@keyframes chatAppear {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
