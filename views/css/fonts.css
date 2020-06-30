@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-italic";
+    src: url("./fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-medium";
+    src: url("./fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-black";
+    src: url("./fonts/Roboto-Black.ttf") format("truetype");
+}
+
+
+.italic {
+    font-family: "Roboto-italic";
+}
+
+.medium {
+    font-family: "Roboto-medium";
+}
+
+.black {
+    font-family: "Roboto-black";
+}
+
+.white {
+    color: white;
+}
+
+.textCenter {
+    text-align: center;
+}

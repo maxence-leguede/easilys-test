@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Babyfootmanager</title>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/css/fonts.css">
+        <link rel="stylesheet" href="/css/anims.css">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/global.css">
+    </head>
+    <body>
+        <img src="/img/background.jpg" alt="Babyfoot background" id="babyfoot">
+        <h1 class="white textCenter">Babyfootmanager</h1>
+
+        <div id="pageContainer">
+            <div id="addParty" class="input fade-fast">
+                <input type="text" placeholder="Nouvelle partie...">
+                <span class="background-blue white"><i class="material-icons">add</i></span>
+            </div>
+
+
+            <div id="parties" class="fade-slow">
+                <div id="title" class="background-blue white">Les parties</div>
+                <div id="currentParties" class="background-blue white">3</div>
+
+                <ul>
+                    <!--<li class="finished">
+                        <p>Vincent vs Maxime</p>
+                        <div class="actions">
+                            <input type="checkbox">
+                            <i class="material-icons">delete</i>
+                        </div>
+                    </li>-->
+                </ul>
+
+                <span id="loadMore">Charger plus...</span>
+            </div>
+        </div>
+
+
+        
+        <script type="module" src="./js/main.mjs"></script>
+    </body>
+</html>

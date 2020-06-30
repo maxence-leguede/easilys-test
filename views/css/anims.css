@@ -1,0 +1,19 @@
+.fade-fast {
+    animation-duration: 1s;
+    animation-name: fadein;
+}
+
+.fade-slow {
+    animation-duration: 3s;
+    animation-name: fadein;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

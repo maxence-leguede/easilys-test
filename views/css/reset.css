@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto";
+    z-index: 1;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+#babyfoot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    opacity: .1;
+    width: 100%;
+}
