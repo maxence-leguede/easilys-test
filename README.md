@@ -65,7 +65,7 @@ node app.js
 #### Bonus
 
 - Chat mockup ✅
-- Implement chat in rest API ⌛
+- Implement chat in rest API ✅
 - Interface development ❌
 - Implement chat in client ❌
 - Use websockets ❌

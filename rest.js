@@ -82,6 +82,57 @@ const initRestAPI = (ioInstance)=> {
         })
     })
 
+
+
+
+
+    /**
+     * 
+     * CHAT REST API
+     * 
+     */
+
+    /**
+     * Route of /api/chat/login in POST method. Will create or select the user based on the username
+     */
+    router.post("/chat/login", (req, res) => {
+        if(req.body.name) {
+            postgre.Chat.selectOrCreateUser(req.body.name).then((rows) => {
+                const currentUser = rows[0];
+                res.status(302).send(currentUser);
+            }).catch((error) => {
+                res.status(500).send(error);
+            })
+        } else {
+            res.sendStatus(403)
+        }
+    })
+
+    /**
+     * Route of /api/chat/messages/:offset in GET method. Will get the messages from the asked offset
+     * @param {Number} :offset
+     */
+    router.get("/chat/messages/:offset", (req,res) => {
+        postgre.Chat.getLastMessages(req.params.offset).then((data) => {
+            res.status(302).send(data);
+        }).catch((error) => {
+            res.status(500).send(error);
+        })
+    })
+
+    /**
+     * Route of /api/chat/post in POST method. Will create a new message for the specified id
+     */
+    router.post("/chat/post", (req,res) => {
+        if(req.body.id && req.body.message) {
+            postgre.Chat.addMessage(req.body.id, req.body.message).then(() => {
+                res.sendStatus(302);
+            })
+        } else {
+            res.sendStatus(403)
+        }
+    })
+
     return router;
 }
 
